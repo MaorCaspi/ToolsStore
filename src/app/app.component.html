@@ -1,4 +1,7 @@
 <h1 class="text-center">Tools Store App</h1>
 <div class="container">
-  <app-product></app-product>
+  <br>
+  <app-login (loginDone)="loginDone($event)"></app-login>
+  <br><hr>
+  <app-product *ngIf="isLoginDone"></app-product>
 </div>

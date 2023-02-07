@@ -1,0 +1,18 @@
+<div *ngIf="!isLoginDone">
+    <div>
+      User Name:
+      <input [(ngModel)]="user.username">
+    </div>
+    <br>
+    <div>
+      Password:
+      <input [(ngModel)]="user.password" type="password">
+    </div>
+    <br>
+    <button (click)="register(user)">Register</button>
+    <button (click)="login(user)">Login</button>
+  </div>
+  <div *ngIf="isLoginDone">
+    <button (click)="logout()">Logout</button>
+  </div>
+  
