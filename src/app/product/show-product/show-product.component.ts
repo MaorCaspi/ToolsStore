@@ -10,6 +10,8 @@ import { ProductApiService } from 'src/app/services/product-api.service';
 export class ShowProductComponent implements OnInit{
 
   productList$!:Observable<any[]>;
+  filterdProductName: string = "";
+  filterdCategory: string = "";
 
   constructor(private service:ProductApiService) { }
 

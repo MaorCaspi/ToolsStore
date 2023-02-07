@@ -10,6 +10,7 @@ import { AddEditProductComponent } from './product/add-edit-product/add-edit-pro
 import { ProductApiService } from './services/product-api.service';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     ProductComponent,
     ShowProductComponent,
     AddEditProductComponent,
-    LoginComponent
+    LoginComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

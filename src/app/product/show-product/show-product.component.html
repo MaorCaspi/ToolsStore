@@ -4,6 +4,21 @@
 >
   Add Product
 </button>
+<div>
+  <label for="nameFilter">Filter By Product Name:&emsp;</label>
+  <input type="text" [(ngModel)]="filterdProductName" name="nameFilter"/>
+</div>
+<br>
+<div>
+  <label for="categoryFilter">Filter By Category:&emsp;</label>
+  <select [(ngModel)]="filterdCategory" name="categoryFilter">
+    <option></option>
+    <option>Basic</option>
+    <option>Electrical</option>
+    <option>Industrial</option>
+  </select>
+</div>
+<br>
 
 <table class="table table-striped">
     <thead>
@@ -15,7 +30,7 @@
       <th>Edit</th>
     </thead>
     <tbody>
-      <tr *ngFor="let item of productList$|async">
+      <tr *ngFor="let item of productList$ | async | filter:'productName':filterdProductName | filter:'category':filterdCategory">
         <td>{{item.productId}}</td>
         <td>{{item.productName}}</td>
         <td>{{item.category}}</td>
@@ -41,6 +56,7 @@
   <div class="alert alert-success" role="alert" id="update-success-alert">
     Inspection successfully updated!
   </div>
+
 
   <!-- Add or edit product Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
