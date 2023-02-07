@@ -1,0 +1,29 @@
+<form>
+    <div class="mb-3">
+        <label for="productName" class="form-label">ProductName</label>
+        <input type="text" class="form-control" [(ngModel)]="productName" name="productName">
+      </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select class="form-control" [(ngModel)]="category" name="category">
+        <option>Basic</option>
+        <option>Electrical</option>
+        <option>Industrial</option>
+      </select>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" class="form-control" [(ngModel)]="price" name="price">
+    </div>
+    <div class="mb-3">
+        <label for="unitsInStock" class="form-label">Units In Stock</label>
+        <input type="number" class="form-control" [(ngModel)]="unitsInStock" name="unitsInStock">
+    </div>
+    <button (click)="addProduct()" *ngIf="product.productId==0" class="btn btn-primary">
+      Add
+    </button>
+    <button (click)="updateProduct()" *ngIf="product.productId!=0" class="btn btn-primary">
+      Update
+    </button>
+  </form>
+  

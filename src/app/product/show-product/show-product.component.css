@@ -1,0 +1,5 @@
+#add-success-alert,
+#update-success-alert {
+  display: none;
+  animation-duration: 2s;
+}
