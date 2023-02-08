@@ -47,14 +47,17 @@ import { AuthService } from '../services/auth.service';
       this.authService.register(user).subscribe((token: string) => {
         localStorage.setItem('authToken', token);
         this.ngOnInit();
-      });
+      },error => console.log('Register failed, the error message:', error.message)
+      );
     }
   
     login(user: User) {
-      this.authService.login(user).subscribe((token: string) => {
+      this.authService.login(user).subscribe(
+        (token: string) => {
         localStorage.setItem('authToken', token);
         this.ngOnInit();
-      });
+      },error => console.log('Login failed, the error message:', error.message)
+      );
     }
   
     logout() {

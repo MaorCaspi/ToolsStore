@@ -75,7 +75,8 @@ export class AddEditProductComponent implements OnInit {
           showAddSuccess.style.display = "none"
         }
       }, 4000);
-    })
+    }, error => console.log('Add new product failed, the error message:', error.message)
+    )
   }
 
   updateProduct() {
@@ -101,6 +102,7 @@ export class AddEditProductComponent implements OnInit {
           showUpdateSuccess.style.display = "none"
         }
       }, 4000);
-    })
+    }, error => console.log('Update product failed, the error message:', error.message)
+    )
   }
 }

@@ -17,7 +17,7 @@ export class ShowProductComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.productList$ = this.service.getProductList();
+    this.productList$ = this.service.getProductList()
   }
 
   // Variables (properties)

@@ -11,6 +11,7 @@
         <option>Electrical</option>
         <option>Industrial</option>
       </select>
+      <span style="color:red;" *ngIf="categoryForm && categoryForm.invalid && categoryForm.touched">This field is required</span>
     </div>
     <div class="mb-3">
       <label for="price" class="form-label">Price</label>
