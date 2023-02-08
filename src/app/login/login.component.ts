@@ -10,23 +10,6 @@ import { AuthService } from '../services/auth.service';
 })
   export class LoginComponent implements OnInit {
 
-    loginForm = new FormGroup({
-      username: new FormControl('',[Validators.required , Validators.pattern('[a-zA-Z0-9]+$')]),
-      password: new FormControl('',[Validators.required , Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$')])
-    })
-
-    loginUser(){
-      console.warn(this.loginForm.value)
-    }
-
-    get username(){
-      return this.loginForm.get('user');
-    }
-
-    get password(){
-      return this.loginForm.get('password');
-    }
-
     user = new User();
     @Output() loginDone = new EventEmitter<boolean>();
     isLoginDone:boolean;
@@ -41,6 +24,23 @@ import { AuthService } from '../services/auth.service';
         this.loginDone.emit(true);
         this.isLoginDone = true;
       }
+    }
+
+    loginForm = new FormGroup({
+      username: new FormControl('',[Validators.required , Validators.pattern('[a-zA-Z0-9]+$'), Validators.maxLength(20)]),
+      password: new FormControl('',[Validators.required , Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$')])
+    })
+
+    loginUser(){
+      console.warn(this.loginForm.value)
+    }
+
+    get username(){
+      return this.loginForm.get('username');
+    }
+
+    get password(){
+      return this.loginForm.get('password');
     }
   
     register(user: User) {

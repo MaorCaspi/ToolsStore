@@ -2,7 +2,7 @@
   Username:
   <input type="text" formControlName="username" [(ngModel)]="user.username">
   <br>
-  <span style="color:red;" *ngIf="username && username.invalid && username.touched">The allowed characters are: A-Z a-z 0-9</span>
+  <span style="color:red;" *ngIf="username && username.invalid && username.touched">This field is required, the allowed characters are: A-Z a-z 0-9, max length is 20</span>
   <br>
   Password:
   <input type="password" formControlName="password" [(ngModel)]="user.password">
@@ -12,4 +12,8 @@
   <button [disabled]="loginForm.invalid" (click)="register(user)">Register</button>
   <button [disabled]="loginForm.invalid" (click)="login(user)">Login</button>
 </form>
+
+<div *ngIf="isLoginDone">
+  <button (click)="logout()">Logout</button>
+</div>
   
