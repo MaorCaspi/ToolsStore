@@ -1,18 +1,15 @@
-<div *ngIf="!isLoginDone">
-    <div>
-      User Name:
-      <input [(ngModel)]="user.username">
-    </div>
-    <br>
-    <div>
-      Password:
-      <input [(ngModel)]="user.password" type="password">
-    </div>
-    <br>
-    <button (click)="register(user)">Register</button>
-    <button (click)="login(user)">Login</button>
-  </div>
-  <div *ngIf="isLoginDone">
-    <button (click)="logout()">Logout</button>
-  </div>
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()" *ngIf="!isLoginDone">
+  Username:
+  <input type="text" formControlName="username" [(ngModel)]="user.username">
+  <br>
+  <span style="color:red;" *ngIf="username && username.invalid && username.touched">The allowed characters are: A-Z a-z 0-9</span>
+  <br>
+  Password:
+  <input type="password" formControlName="password" [(ngModel)]="user.password">
+  <br>
+  <span style="color:red;" *ngIf="password && password.invalid && password.touched">The password must contain 8-20 characters, at least one uppercase letter, one lowercase letter, one number and one special character</span>
+  <br>
+  <button [disabled]="loginForm.invalid" (click)="register(user)">Register</button>
+  <button [disabled]="loginForm.invalid" (click)="login(user)">Login</button>
+</form>
   
