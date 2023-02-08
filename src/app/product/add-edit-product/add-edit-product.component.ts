@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductApiService } from 'src/app/services/product-api.service';
 
 @Component({
@@ -24,6 +24,33 @@ export class AddEditProductComponent implements OnInit {
     this.category = this.product.category;
     this.price = this.product.price;
     this.unitsInStock = this.product.unitsInStock;
+  }
+
+  addEditForm = new FormGroup({
+    productNameForm: new FormControl('',[Validators.required, Validators.maxLength(30)]),
+    categoryForm: new FormControl('',[Validators.required]),
+    priceForm: new FormControl('',[Validators.required, Validators.min(0), Validators.max(10000)]),
+    unitsInStockForm: new FormControl('',[Validators.required, Validators.min(0), Validators.max(10000)])
+  })
+
+  addEditOk(){
+    console.warn(this.addEditForm.value)
+  }
+
+  get productNameForm(){
+    return this.addEditForm.get('productNameForm');
+  }
+
+  get categoryForm(){
+    return this.addEditForm.get('categoryForm');
+  }
+
+  get priceForm(){
+    return this.addEditForm.get('priceForm');
+  }
+
+  get unitsInStockForm(){
+    return this.addEditForm.get('unitsInStockForm');
   }
 
   addProduct() {
