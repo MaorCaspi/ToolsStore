@@ -1,4 +1,4 @@
-<form [formGroup]="addEditForm" (ngSubmit)="addEditOk()">
+<form [formGroup]="addEditForm">
   <div class="mb-3">
       <label for="productName" class="form-label">ProductName</label>
       <input type="text" class="form-control" formControlName="productNameForm" [(ngModel)]="productName" name="productName">

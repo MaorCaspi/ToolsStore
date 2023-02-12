@@ -31,10 +31,6 @@ import { AuthService } from '../services/auth.service';
       password: new FormControl('',[Validators.required , Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$')])
     })
 
-    loginUser(){
-      console.warn(this.loginForm.value)
-    }
-
     get username(){
       return this.loginForm.get('username');
     }

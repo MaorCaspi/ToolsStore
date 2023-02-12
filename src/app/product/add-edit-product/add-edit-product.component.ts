@@ -33,10 +33,6 @@ export class AddEditProductComponent implements OnInit {
     unitsInStockForm: new FormControl('',[Validators.required, Validators.min(0), Validators.max(10000)])
   })
 
-  addEditOk(){
-    console.warn(this.addEditForm.value)
-  }
-
   get productNameForm(){
     return this.addEditForm.get('productNameForm');
   }
